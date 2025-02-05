@@ -1,5 +1,6 @@
 ---
 _layout: landing
+redirect_url: docs/get-started/what-is-automorph.html
 ---
 
 # This is the **HOMEPAGE**.

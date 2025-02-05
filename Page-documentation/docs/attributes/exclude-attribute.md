@@ -7,7 +7,7 @@ title: ExcludeAttribute
     <p>Namespace: <code>AutoMorph.Abstractions.Attributes</code></p> 
     <p>Inheritance: <a href="../inherited-attribute-members.html">IExclude, IAttribute</a></p>
     <p>Attaches to: <code>Properties</code></p>
-    <p>Analyzer Errors: No Analyzer Errors.</p>
+    <p>Analyzer Rules: None.</p>
 </div> <br />
 
 #### Overview

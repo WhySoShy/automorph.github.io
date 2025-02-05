@@ -8,7 +8,7 @@ title: MarkAsStaticAttribute
     <p>Namespace: <code>AutoMorph.Abstractions.Attributes</code></p> 
     <p>Inheritance: <a href="../inherited-attribute-members.html">IMarkAsStaticAttribute, IAttribute</a></p>
     <p>Attaches to: <code>Class, Struct</code></p>
-    <p>Analyzer Errors: No Analyzer Errors.</p>
+    <p>Analyzer Rules: None.</p>
 </div> <br />
 
 ### Overview

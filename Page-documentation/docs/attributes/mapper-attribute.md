@@ -7,7 +7,8 @@ title: MapperAttribute
 <div class="facts text-secondary">
     <p>Namespace: <code>AutoMorph.Abstractions.Attributes</code></p> 
     <p>Inheritance: <a href="../inherited-attribute-members.html">IMapperAttribute</a></p>
-    <p>Analyzer Errors: No Analyzer Errors.</p>
+    <p>Attaches to: <code>Class, Struct, Record, Interface</code></p>
+    <p>Analyzer Rules: None.</p>
 </div> <br />
 
 #### Overview

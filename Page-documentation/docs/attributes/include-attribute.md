@@ -8,7 +8,7 @@ title: IncludeAttribute<T>(MapperType, MappingStrategy)
     <p>Namespace: <code>AutoMorph.Abstractions.Attributes</code></p> 
     <p>Inheritance: <a href="../inherited-attribute-members.html">IIncludeAttribute, IAttribute</a></p>
     <p>Attaches to: <code>Class, Struct, Record, Interface, Method</code></p>
-    <p>Analyzer Errors: No Analyzer Errors.</p>
+    <p>Analyzer Rules: None.</p>
 </div> <br />
 
 #### Overview
