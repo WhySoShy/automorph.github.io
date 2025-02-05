@@ -1,0 +1,27 @@
+# Naming of markdown files are set within the markdown files them selves.
+
+- name: Get started
+- href: get-started/what-is-automorph.md
+- href: get-started/installation.md
+- href: get-started/getting-started.md
+
+# Beginning of the Attributes region
+
+- name: Attributes
+- href: attributes/mapper-attribute.md
+- href: attributes/exclude-attribute.md
+- href: attributes/markasstatic-attribute.md
+# - href: attributes/property-attribute.md
+- href: attributes/include-attribute.md
+
+# End of the Attributes region
+
+- name: Enums
+# - href: enums/mappertype.md
+# - href: enums/mapperstrategy.md
+# - href: enums/ 
+- name: Supported Collections
+- name: Type Casting
+- name: Generic mappers
+- href: partial-mappers.md
+- name: Inherited Attribute Members

@@ -1,0 +1,62 @@
+{
+  "docs/attributes/exclude-attribute.html": {
+    "href": "docs/attributes/exclude-attribute.html",
+    "title": "ExcludeAttribute | AutoMorph",
+    "keywords": "Exclude Attribute Namespace: AutoMorph.Abstractions.Attributes Inheritance: IExclude, IAttribute Attaches to: Properties Analyzer Errors: No Analyzer Errors. Overview The [Exclude] attribute prevents a property from being mapped. It can exclude a property from one or multiple mappers based on the specified Key. Class Definition public class ExcludeAttribute : Attribute, IExcludeAttribute, IAttribute Properties Property Description Key Specifies which [Include] mappings the [Exclude] attribute applies to. • If no key is set or the provided key doesn't match any [Include], the exclusion applies to all mappings of this type. Example Usage using AutoMorph.Abstractions.Attributes; namespace AutoMorph.Sample; [Mapper] // Marks this class as a source type for mapping [Include<TargetClass>(MapperType.Standard, MappingStrategy.Normal)] // Defines normal object-object mapping from the source -> target. public class SourceClass { public string Name { get; set; } [Exclude] // This property will NOT be included in any generated mappers. public int Age { get; set; } } public class TargetClass { public string Name { get; set; } public int Age { get; set; } // This will NOT receive any mapped values. }"
+  },
+  "docs/attributes/include-attribute.html": {
+    "href": "docs/attributes/include-attribute.html",
+    "title": "IncludeAttribute<T>(MapperType, MappingStrategy) | AutoMorph",
+    "keywords": "Include Attribute Namespace: AutoMorph.Abstractions.Attributes Inheritance: IIncludeAttribute, IAttribute Attaches to: Class, Struct, Record, Interface, Method Analyzer Errors: No Analyzer Errors. Overview Specifies the target type for mapping and defines how the mapper should be generated for the source type. Class Definition public class IncludeAttribute<T>(MapperType type, MappingStrategy strategy) : Attribute, IIncludeAttribute, IAttribute Attachable Types When attached to different types, the attribute will act accordingly. Type Behavior Class, Struct, Record Generates an extension method for mapping. • If a partial method is used, the mapper is generated as a regular method inside the class. Interface Generates a generic mapper, constrained to the source or target type depending on the MapperStrategy. Method Generates a partial method • Both the type and method must be partial Read Partial Mappers Type Parameters T The target type to map to. Parameters Parameter Type type MapperType strategy MapperStrategy Properties Property Description Key Used to bind additional attributes (Exclude, Property) to a specific mapping instance. IsGeneric Forces the mapper to be generated as a generic mapper, constrained based on MapperStrategy. MapperName Explicitly sets the generated mapper's name. • If attached to a partial method, the method's name is used instead. Example Usage using AutoMorph.Abstractions.Attributes; namespace AutoMorph.Sample; [Mapper] // Marks this class as a source type for mapping [Include<TargetClass>(MapperType.Standard, MappingStrategy.Normal)] // Defines object-object mapping. public class SourceClass { public string Name { get; set; } } public class TargetClass { public string Name { get; set; } }"
+  },
+  "docs/attributes/mapper-attribute.html": {
+    "href": "docs/attributes/mapper-attribute.html",
+    "title": "MapperAttribute | AutoMorph",
+    "keywords": "Mapper Attribute Namespace: AutoMorph.Abstractions.Attributes Inheritance: IMapperAttribute Analyzer Errors: No Analyzer Errors. Overview The [Mapper] attribute marks a type as a source for AutoMorph’s mapping system. However, it does not generate a mapper unless paired with the atleast one Include attribute, which specifies the mapping target. Class Definition public class MapperAttribute : Attribute, IMapperAttribute Properties Property Description DefaultMapperName Sets a default mapper name for all mappers defined with the Include Attribute. This can be overriden if: • The declared mapper is a partial mapper. • A specific name is explitcly defined in Include Attribute. Valid Source Types The behavior of the source types changes depending on what source they are attached to. Source Type Behavior Class, Struct, Record Generates all specified mappers based on MapperType This can be overriden if: • The mapper is explicitly defined in Include Attribute. Abstract Types (Interfaces, Abstract Classes) Generates generic mappers constrainted to the source type. Example Usage using AutoMorph.Abstractions.Attributes; namespace AutoMorph.Sample; [Mapper] // Marks this class as a source type for mapping public class SourceClass { public string Name { get; set; } }"
+  },
+  "docs/attributes/markasstatic-attribute.html": {
+    "href": "docs/attributes/markasstatic-attribute.html",
+    "title": "MarkAsStaticAttribute | AutoMorph",
+    "keywords": "MarkAsStatic Attribute Namespace: AutoMorph.Abstractions.Attributes Inheritance: IMarkAsStaticAttribute, IAttribute Attaches to: Class, Struct Analyzer Errors: No Analyzer Errors. Overview The [MarkAsStatic] attribute forces all generated mappers to be extension methods instead of instance or partial methods. Note This disables any partial methods marked with [Include], meaning they won't be generated when this attribute is present. Note Static partial methods are not yet supported, but will be added in the future. Class Definition public class MarkAsStaticAttribute : Attribute, IMarkAsStaticAttribute, IAttribute Properties Property Description Key Not supported yet for this attribute. Example Usage using AutoMorph.Abstractions.Attributes; namespace AutoMorph.Sample; [Mapper] // Marks this class as a source type for mapping [Include<TargetClass>(MapperType.Standard, MappingStrategy.Normal)] // Defines normal object-object mapping from the source -> target. [MarkAsStatic] // Ensures generated mappers are static extension methods. public class SourceClass { public string Name { get; set; } public int Age { get; set; } } public class TargetClass { public string Name { get; set; } public int Age { get; set; } }"
+  },
+  "docs/attributes/property-attribute.html": {
+    "href": "docs/attributes/property-attribute.html",
+    "title": "PropertyAttribute(string) | AutoMorph",
+    "keywords": "Property Attribute Write about: The purpose of the attribute How to use the Attribute Properties within the attribute"
+  },
+  "docs/get-started/getting-started.html": {
+    "href": "docs/get-started/getting-started.html",
+    "title": "Getting Started | AutoMorph",
+    "keywords": "Getting Started Creating Your First Mapper Before defining a mapper, ensure you import the necessary attributes and enums from AutoMorph.Abstractions.Attributes, AutoMorph.Abstractions.Enums using AutoMorph.Abstractions.Attributes; using AutoMorph.Abstractions.Enums; To begin generating a mapper, you need a source class decorated with the [Mapper] attribute. The source class represents the object you are mapping from, while the target class represents the object you are mapping to. Declaring a Mapper The [Include] attribute specifies which target the source should be mapped to. Additionally, it defines the mapping strategy via MapperType. A type argument specifying the target class TargetClass. A mapper type that determines the mapping behavior MapperType.Standard. Example [Mapper] [Include<TargetClass>(MapperType.Standard)] public class SourceClass { public string Name { get; set; } public int Age { get; set; } } public class TargetClass { public string Name { get; set; } } To understand how mapping works, learn more about the required attributes: Mapper, Include The example will generate the following code: /// <auto-generated /> #nullable enable namespace AutoMorph.Generated.Mappers { public static class GeneratedMapper_SourceClass { public static TargetClass MapToTargetClass(this SourceClass source) { return new TargetClass() { Name = source.Name }; } } } Note: Code is displayed without any namespaces, to give more clarity. Fully Qualified Version AutoMorph ensures fully qualified type names to avoid conflicts. Click to view the fully qualified generated code. /// <auto-generated /> #nullable enable namespace AutoMorph.Generated.Mappers { public static class GeneratedMapper_SourceClass { public static global::AutoMorph.Test.Examples.TargetClass MapToTargetClass(this global::AutoMorph.Test.Examples.SourceClass source) { return new global::AutoMorph.Test.Examples.TargetClass() { Name = source.Name }; } } } Why use global::? This ensures AutoMorph always references the correct type, even if other classes have similar names. Using the Generated Mapper Where is the Generated Code Located? By default, AutoMorph generates mapper classes inside the AutoMorph.Generated.Mappers namespace. This behavior can change, learn more in Partial Mappers Once the code is generated, you can use the mapper like this: SourceClass sourceClass = new() { Name = \"John Doe\", Age = 47 } TargetClass mappedTarget = sourceClass.MapToTargetClass();"
+  },
+  "docs/get-started/installation.html": {
+    "href": "docs/get-started/installation.html",
+    "title": "Installation | AutoMorph",
+    "keywords": "Installing AutoMorph Important Your project must support .NET Standard 2.0 Install via NuGet Run the following command in your CLI: dotnet add package AutoMorph Installation via IDE (Visual Studio / Rider) Open the NuGet Package Manager (Tools > NuGet Package Manager > Manage NuGet Packages for Solution) Search for AutoMorph Click Install Manual Installation Add AutoMorph to your .csproj file manually: <ItemGroup> <PackageReference Include=\"AutoMorph\" Version=\"LATEST_VERSION\" /> </ItemGroup> Important Replace LATEST_VERSION to the desired version that is compatible with your project. Getting started When you've installed AutoMorph in your project, you can begin with the Getting Started that gives you a small sample of the generator."
+  },
+  "docs/get-started/what-is-automorph.html": {
+    "href": "docs/get-started/what-is-automorph.html",
+    "title": "What is AutoMorph | AutoMorph",
+    "keywords": "Caution AutoMorph is still in early beta. Expect breaking changes and limited features. What is AutoMorph? AutoMorph is a .NET Incremental Source Generator that automatically generates object mappers using attributes. Instead of manually writing boilerplate mapping code, simply annotate your types, and AutoMorph will generate optimized conversion methods at compile time. Why? Many object-mapping generators exist, but I wanted to build one that I could fully design and control. Creating AutoMorph has been a learning experience—this is my second time developing a source generator, but my first time publishing one with complete documentation. Get started Ready to start using AutoMorph? Head over to Installation to begin your journey! Contribution Warning AutoMorph doesn't take Contributions yet. AutoMorph’s mapper generation is primarily StringBuilder-based, reducing reliance on Roslyn’s SyntaxFactory for code generation. However, a basic understanding of Roslyn’s APIs is still required for working with symbol analysis and syntax trees. When contributions do open up, the focus will be on extending and improving the existing token system and refining the generator logic, rather than deeply interacting with Roslyn’s AST. Create how to make contribution End Goal The ultimate goal of AutoMorph is the learning experience gained from creating and contributing to the project."
+  },
+  "docs/introduction.html": {
+    "href": "docs/introduction.html",
+    "title": "Introduction | AutoMorph",
+    "keywords": "Introduction"
+  },
+  "docs/partial-mappers.html": {
+    "href": "docs/partial-mappers.html",
+    "title": "Partial Mappers | AutoMorph",
+    "keywords": ""
+  },
+  "index.html": {
+    "href": "index.html",
+    "title": "This is the HOMEPAGE. | AutoMorph",
+    "keywords": "This is the HOMEPAGE. Refer to Markdown for how to write markdown files. Quick Start Notes: Add images to the images folder if the file is referencing an image."
+  },
+  "up-coming.html": {
+    "href": "up-coming.html",
+    "title": "| AutoMorph",
+    "keywords": "This page is an upcoming page.."
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "source_base_path": "C:/Users/Emil/Desktop/automorph.github.io",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/attributes/exclude-attribute.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/attributes/exclude-attribute.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/attributes/include-attribute.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/attributes/include-attribute.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/attributes/mapper-attribute.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/attributes/mapper-attribute.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/attributes/markasstatic-attribute.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/attributes/markasstatic-attribute.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/attributes/property-attribute.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/attributes/property-attribute.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/get-started/getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/get-started/getting-started.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/get-started/installation.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/get-started/installation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/get-started/what-is-automorph.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/get-started/what-is-automorph.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/introduction.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/introduction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/partial-mappers.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/partial-mappers.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "docs/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "docs/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "up-coming.md",
+      "output": {
+        ".html": {
+          "relative_path": "up-coming.html"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
