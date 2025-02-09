@@ -11,8 +11,10 @@
 - href: attributes/mapper-attribute.md
 - href: attributes/exclude-attribute.md
 - href: attributes/markasstatic-attribute.md
-# - href: attributes/property-attribute.md
+- href: attributes/property-attribute.md
 - href: attributes/include-attribute.md
+
+- name: Additional Attribute Info # In here there should probably just be an explanation of the Key system, and how it determines what it will be attached to. 
 
 # End of the Attributes region
 
